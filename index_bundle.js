@@ -585,7 +585,9 @@ function Keyboard(){
         if(name=='Backspace') key.classList.add('k4');
         else key.classList.add('k1')
         key.innerHTML = name;
-        console.log(key);
+        key.addEventListener('click', function(){
+            document.body.children[0].value = document.body.children[0].value+name;
+        })
         keys1.appendChild(key);
     })
     const keys2 = document.createElement('div');
@@ -596,7 +598,9 @@ function Keyboard(){
         if(name=='Tab') key.classList.add('k2');
         else key.classList.add('k1')
         key.innerHTML = name;
-        console.log(key);
+        key.addEventListener('click', function(){
+            document.body.children[0].innerHTML = document.body.children[0].innerHTML+name;
+        })
         keys2.appendChild(key);
     })
     const keys3 = document.createElement('div');
@@ -608,7 +612,9 @@ function Keyboard(){
         else if(name == 'Enter')key.classList.add('k3');
         else key.classList.add('k1')
         key.innerHTML = name;
-        console.log(key);
+        key.addEventListener('click', function(){
+            document.body.children[0].innerHTML = document.body.children[0].innerHTML+name;
+        })
         keys3.appendChild(key);
     })
     const keys4 = document.createElement('div');
@@ -620,7 +626,9 @@ function Keyboard(){
         else if(name == 'Shift')key.classList.add('k3');
         else key.classList.add('k1')
         key.innerHTML = name;
-        console.log(key);
+        key.addEventListener('click', function(){
+            document.body.children[0].innerHTML = document.body.children[0].innerHTML+name;
+        })
         keys4.appendChild(key);
     })
     const keys5 = document.createElement('div');
@@ -631,7 +639,9 @@ function Keyboard(){
         if(name=='Space') key.classList.add('k5');
         else key.classList.add('k1')
         key.innerHTML = name;
-        console.log(key);
+        key.addEventListener('click', function(){
+            document.body.children[0].innerHTML = document.body.children[0].innerHTML+name;
+        })
         keys5.appendChild(key);
     })
     main.appendChild(keys1)
