@@ -549,7 +549,7 @@ function app(){
     const txtar = document.createElement('textarea');
     txtar.setAttribute('rows','14');
     document.body.appendChild(txtar);
-    (0,_keyboard__WEBPACK_IMPORTED_MODULE_1__.Keyboard)()
+    document.body.appendChild((0,_keyboard__WEBPACK_IMPORTED_MODULE_1__.Keyboard)());
 }
 
 /***/ }),
@@ -566,90 +566,142 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // import './app.css';
 
-function Keyboard(){
+function Keyboard() {
+  document.addEventListener('keydown', function (event) {
+    let text = document.body.children[0].innerHTML;
+    document.body.children[0].innerHTML = document.body.children[0].innerHTML + event.key;
     
-    const main = document.createElement('div');
-    main.classList.add('keyboard');
-    // global.console.log('Helo my');
-    const en_keys1=['`','1','2','3','4','5','6','7','8','9','0','-','=','Backspace'];
-    const en_keys2=['Tab','q','w','e','r','t','y','u','i','o','p','[',']','\\', 'Del'];
-    const en_keys3=['CapsLock','a','s','d','f','g','h','j','k','l',';','\'','Enter'];
-    const en_keys4=['Shift ','z','x','c','v','b','n','m',',','.','/','up','Shift'];
-    const en_keys5=['Ctrl','Win','Alt','Space','Alt','left','down','right','Ctrl'];
-    const br = document.createElement('br');
-    const keys1 = document.createElement('div');
-    keys1.classList.add('keyboard__keys');
-    en_keys1.forEach((name)=>{
-        let key = document.createElement('button');
-        key.classList.add('keyboard__key');
-        if(name=='Backspace') key.classList.add('k4');
-        else key.classList.add('k1')
-        key.innerHTML = name;
-        key.addEventListener('click', function(){
-            document.body.children[0].value = document.body.children[0].value+name;
-        })
-        keys1.appendChild(key);
-    })
-    const keys2 = document.createElement('div');
-    keys2.classList.add('keyboard__keys');
-    en_keys2.forEach((name)=>{
-        let key = document.createElement('button');
-        key.classList.add('keyboard__key');
-        if(name=='Tab') key.classList.add('k2');
-        else key.classList.add('k1')
-        key.innerHTML = name;
-        key.addEventListener('click', function(){
-            document.body.children[0].innerHTML = document.body.children[0].innerHTML+name;
-        })
-        keys2.appendChild(key);
-    })
-    const keys3 = document.createElement('div');
-    keys3.classList.add('keyboard__keys');
-    en_keys3.forEach((name)=>{
-        let key = document.createElement('button');
-        key.classList.add('keyboard__key');
-        if(name=='CapsLock') key.classList.add('k4');
-        else if(name == 'Enter')key.classList.add('k3');
-        else key.classList.add('k1')
-        key.innerHTML = name;
-        key.addEventListener('click', function(){
-            document.body.children[0].innerHTML = document.body.children[0].innerHTML+name;
-        })
-        keys3.appendChild(key);
-    })
-    const keys4 = document.createElement('div');
-    keys4.classList.add('keyboard__keys');
-    en_keys4.forEach((name)=>{
-        let key = document.createElement('button');
-        key.classList.add('keyboard__key');
-        if(name=='Shift ') key.classList.add('k4');
-        else if(name == 'Shift')key.classList.add('k3');
-        else key.classList.add('k1')
-        key.innerHTML = name;
-        key.addEventListener('click', function(){
-            document.body.children[0].innerHTML = document.body.children[0].innerHTML+name;
-        })
-        keys4.appendChild(key);
-    })
-    const keys5 = document.createElement('div');
-    keys5.classList.add('keyboard__keys');
-    en_keys5.forEach((name)=>{
-        let key = document.createElement('button');
-        key.classList.add('keyboard__key');
-        if(name=='Space') key.classList.add('k5');
-        else key.classList.add('k1')
-        key.innerHTML = name;
-        key.addEventListener('click', function(){
-            document.body.children[0].innerHTML = document.body.children[0].innerHTML+name;
-        })
-        keys5.appendChild(key);
-    })
-    main.appendChild(keys1)
-    main.appendChild(keys2)
-    main.appendChild(keys3)
-    main.appendChild(keys4)
-    main.appendChild(keys5)
-    document.body.appendChild(main);
+    if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+      alert('Undo!')
+    }
+  });
+
+  // My part of code
+
+  const main = document.createElement('div');
+  main.classList.add('keyboard');
+  // global.console.log('Helo my');
+  const en_keys1 = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'];
+  const en_keys2 = ['Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del'];
+  const en_keys3 = ['CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter'];
+  const en_keys4 = ['Shift ', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'up', 'Shift'];
+  const en_keys5 = ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', 'left', 'down', 'right', 'Ctrl'];
+  const br = document.createElement('br');
+  const keys1 = document.createElement('div');
+  keys1.classList.add('keyboard__keys');
+  en_keys1.forEach((name) => {
+    let key = document.createElement('button');
+    key.classList.add('keyboard__key');
+    if (name == 'Backspace') {
+      key.classList.add('k4');
+      key.addEventListener('click', function () {
+        let text = document.body.children[0].innerHTML;
+        document.body.children[0].innerHTML = text.substring(0, text.length - 1);
+      });
+    }
+    else {
+      key.classList.add('k1');
+      key.addEventListener('click', function () {
+        document.body.children[0].innerHTML = document.body.children[0].innerHTML + name;
+      });
+    }
+    key.innerHTML = name;
+    key.setAttribute('id', name);
+    keys1.appendChild(key);
+  })
+  const keys2 = document.createElement('div');
+  keys2.classList.add('keyboard__keys');
+  en_keys2.forEach((name) => {
+    let key = document.createElement('button');
+    key.classList.add('keyboard__key');
+    if (name == 'Tab') {
+      key.classList.add('k2');
+    }
+    else if (name == 'Del') {
+      console.log()
+      key.classList.add('k1')
+    }
+    else {
+      key.classList.add('k1');
+      key.addEventListener('click', function () {
+        document.body.children[0].innerHTML = document.body.children[0].innerHTML + name;
+      });
+    }
+    key.innerHTML = name;
+    key.setAttribute('id', name);
+
+    keys2.appendChild(key);
+  })
+  const keys3 = document.createElement('div');
+  keys3.classList.add('keyboard__keys');
+  en_keys3.forEach((name) => {
+    let key = document.createElement('button');
+    key.classList.add('keyboard__key');
+    if (name == 'CapsLock') {
+      key.classList.add('k4');
+    }
+    else if (name == 'Enter') {
+      key.classList.add('k3');
+    }
+    else {
+      key.classList.add('k1');
+      key.addEventListener('click', function () {
+        document.body.children[0].innerHTML = document.body.children[0].innerHTML + name;
+      });
+    }
+    key.innerHTML = name;
+    key.setAttribute('id', name);
+
+    keys3.appendChild(key);
+  })
+  const keys4 = document.createElement('div');
+  keys4.classList.add('keyboard__keys');
+  en_keys4.forEach((name) => {
+    let key = document.createElement('button');
+    key.classList.add('keyboard__key');
+    if (name == 'Shift ') {
+      key.classList.add('k4');
+    }
+    else if (name == 'Shift') {
+      key.classList.add('k3');
+    }
+    else {
+      key.classList.add('k1');
+      key.addEventListener('click', function () {
+        document.body.children[0].innerHTML = document.body.children[0].innerHTML + name;
+      });
+    }
+    key.innerHTML = name;
+    key.setAttribute('id', name);
+
+    keys4.appendChild(key);
+  })
+  const keys5 = document.createElement('div');
+  keys5.classList.add('keyboard__keys');
+  en_keys5.forEach((name) => {
+    let key = document.createElement('button');
+    key.classList.add('keyboard__key');
+    if (name == 'Space') {
+      key.classList.add('k5');
+    }
+    else {
+      key.classList.add('k1');
+      key.addEventListener('click', function () {
+        document.body.children[0].innerHTML = document.body.children[0].innerHTML + name;
+      });
+    }
+    key.innerHTML = name;
+    key.setAttribute('id', name);
+
+    keys5.appendChild(key);
+  })
+  main.appendChild(keys1)
+  main.appendChild(keys2)
+  main.appendChild(keys3)
+  main.appendChild(keys4)
+  main.appendChild(keys5)
+
+  return main;
 
 }
 
