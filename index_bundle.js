@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".keyboard {\r\n    position: absolute;\r\n    margin: 300px auto;\r\n    width: 927px;\r\n    padding: 5px 6px;\r\n    right: 50%;\r\n    margin-right: -463.5px;\r\n    background: #293e3a;\r\n    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);\r\n    user-select: none;\r\n    border-radius: 4px;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n/* .keyboard--hidden {\r\n    bottom: -100%;\r\n} */\r\n\r\n.keyboard__keys {\r\n    text-align: center;\r\n}\r\n\r\n.keyboard__key {\r\n    height: 45px;\r\n    margin: 3px;\r\n    border-radius: 4px;\r\n    border: none;\r\n    background: rgba(255, 255, 255, 0.286);\r\n    color: #ffffff;\r\n    font-size: 1.05rem;\r\n    outline: none;\r\n    cursor: pointer;\r\n    display: inline-flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    vertical-align: top;\r\n    padding: 0;\r\n    -webkit-tap-highlight-color: transparent;\r\n    position: relative;\r\n}\r\n\r\n.k1{\r\n    width: 55px;\r\n}\r\n\r\n.keyboard__key:active {\r\n    background: #08ff00;\r\n}\r\n\r\n.k2{\r\n    width: 64px;\r\n}\r\n.k3{\r\n    width: 116px;\r\n}\r\n.k4{\r\n    width: 126px;\r\n}\r\n\r\n.k5{\r\n    width: 431px;\r\n}\r\n\r\n.caps::after {\r\n    content: '';\r\n    top: 8px;\r\n    right: 8px;\r\n    position: absolute;\r\n    width: 8px;\r\n    height: 8px;\r\n    background: rgb(0, 0, 0);\r\n    border-radius: 50%;\r\n    z-index: 30;\r\n    border: 2px solid rgb(60, 60, 60);\r\n}\r\n\r\n.caps--active::after{\r\n    background: #0eaf49;\r\n}\r\n\r\n.keyboard__key--dark {\r\n    background: rgba(0, 0, 0, 0.25);\r\n}\r\ntextarea{\r\n    position: absolute;\r\n    top:50px;\r\n    width: 928px;\r\n    right: 50%;\r\n    margin-right: -464px;\r\n    border-radius: 4px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/app.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,kBAAkB;IAClB,YAAY;IACZ,gBAAgB;IAChB,UAAU;IACV,sBAAsB;IACtB,mBAAmB;IACnB,uCAAuC;IACvC,iBAAiB;IACjB,kBAAkB;IAClB,aAAa;IACb,eAAe;AACnB;;AAEA;;GAEG;;AAEH;IACI,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,kBAAkB;IAClB,YAAY;IACZ,sCAAsC;IACtC,cAAc;IACd,kBAAkB;IAClB,aAAa;IACb,eAAe;IACf,oBAAoB;IACpB,mBAAmB;IACnB,uBAAuB;IACvB,mBAAmB;IACnB,UAAU;IACV,wCAAwC;IACxC,kBAAkB;AACtB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,WAAW;AACf;AACA;IACI,YAAY;AAChB;AACA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,QAAQ;IACR,UAAU;IACV,kBAAkB;IAClB,UAAU;IACV,WAAW;IACX,wBAAwB;IACxB,kBAAkB;IAClB,WAAW;IACX,iCAAiC;AACrC;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,+BAA+B;AACnC;AACA;IACI,kBAAkB;IAClB,QAAQ;IACR,YAAY;IACZ,UAAU;IACV,oBAAoB;IACpB,kBAAkB;AACtB","sourcesContent":[".keyboard {\r\n    position: absolute;\r\n    margin: 300px auto;\r\n    width: 927px;\r\n    padding: 5px 6px;\r\n    right: 50%;\r\n    margin-right: -463.5px;\r\n    background: #293e3a;\r\n    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);\r\n    user-select: none;\r\n    border-radius: 4px;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n/* .keyboard--hidden {\r\n    bottom: -100%;\r\n} */\r\n\r\n.keyboard__keys {\r\n    text-align: center;\r\n}\r\n\r\n.keyboard__key {\r\n    height: 45px;\r\n    margin: 3px;\r\n    border-radius: 4px;\r\n    border: none;\r\n    background: rgba(255, 255, 255, 0.286);\r\n    color: #ffffff;\r\n    font-size: 1.05rem;\r\n    outline: none;\r\n    cursor: pointer;\r\n    display: inline-flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    vertical-align: top;\r\n    padding: 0;\r\n    -webkit-tap-highlight-color: transparent;\r\n    position: relative;\r\n}\r\n\r\n.k1{\r\n    width: 55px;\r\n}\r\n\r\n.keyboard__key:active {\r\n    background: #08ff00;\r\n}\r\n\r\n.k2{\r\n    width: 64px;\r\n}\r\n.k3{\r\n    width: 116px;\r\n}\r\n.k4{\r\n    width: 126px;\r\n}\r\n\r\n.k5{\r\n    width: 431px;\r\n}\r\n\r\n.caps::after {\r\n    content: '';\r\n    top: 8px;\r\n    right: 8px;\r\n    position: absolute;\r\n    width: 8px;\r\n    height: 8px;\r\n    background: rgb(0, 0, 0);\r\n    border-radius: 50%;\r\n    z-index: 30;\r\n    border: 2px solid rgb(60, 60, 60);\r\n}\r\n\r\n.caps--active::after{\r\n    background: #0eaf49;\r\n}\r\n\r\n.keyboard__key--dark {\r\n    background: rgba(0, 0, 0, 0.25);\r\n}\r\ntextarea{\r\n    position: absolute;\r\n    top:50px;\r\n    width: 928px;\r\n    right: 50%;\r\n    margin-right: -464px;\r\n    border-radius: 4px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".keyboard {\r\n    position: absolute;\r\n    margin: 300px auto;\r\n    width: 927px;\r\n    padding: 5px 6px;\r\n    right: 50%;\r\n    margin-right: -463.5px;\r\n    background: #293e3a;\r\n    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);\r\n    user-select: none;\r\n    border-radius: 4px;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n/* .keyboard--hidden {\r\n    bottom: -100%;\r\n} */\r\n\r\n.keyboard__keys {\r\n    text-align: center;\r\n}\r\n\r\n.keyboard__key {\r\n    height: 45px;\r\n    margin: 3px;\r\n    border-radius: 4px;\r\n    border: none;\r\n    background: rgba(255, 255, 255, 0.286);\r\n    color: #ffffff;\r\n    font-size: 1.05rem;\r\n    outline: none;\r\n    cursor: pointer;\r\n    display: inline-flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    vertical-align: top;\r\n    padding: 0;\r\n    -webkit-tap-highlight-color: transparent;\r\n    position: relative;\r\n}\r\n\r\n.k1{\r\n    width: 55px;\r\n}\r\n\r\n.keyboard__key:active, .keyboard__key--active {\r\n    background: #08ff00;\r\n}\r\n\r\n.k2{\r\n    width: 64px;\r\n}\r\n.k3{\r\n    width: 116px;\r\n}\r\n.k4{\r\n    width: 126px;\r\n}\r\n\r\n.k5{\r\n    width: 431px;\r\n}\r\n\r\n.caps::after {\r\n    content: '';\r\n    top: 8px;\r\n    right: 8px;\r\n    position: absolute;\r\n    width: 8px;\r\n    height: 8px;\r\n    background: rgb(0, 0, 0);\r\n    border-radius: 50%;\r\n    z-index: 30;\r\n    border: 2px solid rgb(60, 60, 60);\r\n}\r\n\r\n.caps--active::after{\r\n    background: #0eaf49;\r\n}\r\n\r\n.keyboard__key--dark {\r\n    background: rgba(0, 0, 0, 0.25);\r\n}\r\ntextarea{\r\n    position: absolute;\r\n    top:50px;\r\n    width: 928px;\r\n    right: 50%;\r\n    margin-right: -464px;\r\n    border-radius: 4px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/app.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,kBAAkB;IAClB,YAAY;IACZ,gBAAgB;IAChB,UAAU;IACV,sBAAsB;IACtB,mBAAmB;IACnB,uCAAuC;IACvC,iBAAiB;IACjB,kBAAkB;IAClB,aAAa;IACb,eAAe;AACnB;;AAEA;;GAEG;;AAEH;IACI,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,kBAAkB;IAClB,YAAY;IACZ,sCAAsC;IACtC,cAAc;IACd,kBAAkB;IAClB,aAAa;IACb,eAAe;IACf,oBAAoB;IACpB,mBAAmB;IACnB,uBAAuB;IACvB,mBAAmB;IACnB,UAAU;IACV,wCAAwC;IACxC,kBAAkB;AACtB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,WAAW;AACf;AACA;IACI,YAAY;AAChB;AACA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,QAAQ;IACR,UAAU;IACV,kBAAkB;IAClB,UAAU;IACV,WAAW;IACX,wBAAwB;IACxB,kBAAkB;IAClB,WAAW;IACX,iCAAiC;AACrC;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,+BAA+B;AACnC;AACA;IACI,kBAAkB;IAClB,QAAQ;IACR,YAAY;IACZ,UAAU;IACV,oBAAoB;IACpB,kBAAkB;AACtB","sourcesContent":[".keyboard {\r\n    position: absolute;\r\n    margin: 300px auto;\r\n    width: 927px;\r\n    padding: 5px 6px;\r\n    right: 50%;\r\n    margin-right: -463.5px;\r\n    background: #293e3a;\r\n    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);\r\n    user-select: none;\r\n    border-radius: 4px;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n/* .keyboard--hidden {\r\n    bottom: -100%;\r\n} */\r\n\r\n.keyboard__keys {\r\n    text-align: center;\r\n}\r\n\r\n.keyboard__key {\r\n    height: 45px;\r\n    margin: 3px;\r\n    border-radius: 4px;\r\n    border: none;\r\n    background: rgba(255, 255, 255, 0.286);\r\n    color: #ffffff;\r\n    font-size: 1.05rem;\r\n    outline: none;\r\n    cursor: pointer;\r\n    display: inline-flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    vertical-align: top;\r\n    padding: 0;\r\n    -webkit-tap-highlight-color: transparent;\r\n    position: relative;\r\n}\r\n\r\n.k1{\r\n    width: 55px;\r\n}\r\n\r\n.keyboard__key:active, .keyboard__key--active {\r\n    background: #08ff00;\r\n}\r\n\r\n.k2{\r\n    width: 64px;\r\n}\r\n.k3{\r\n    width: 116px;\r\n}\r\n.k4{\r\n    width: 126px;\r\n}\r\n\r\n.k5{\r\n    width: 431px;\r\n}\r\n\r\n.caps::after {\r\n    content: '';\r\n    top: 8px;\r\n    right: 8px;\r\n    position: absolute;\r\n    width: 8px;\r\n    height: 8px;\r\n    background: rgb(0, 0, 0);\r\n    border-radius: 50%;\r\n    z-index: 30;\r\n    border: 2px solid rgb(60, 60, 60);\r\n}\r\n\r\n.caps--active::after{\r\n    background: #0eaf49;\r\n}\r\n\r\n.keyboard__key--dark {\r\n    background: rgba(0, 0, 0, 0.25);\r\n}\r\ntextarea{\r\n    position: absolute;\r\n    top:50px;\r\n    width: 928px;\r\n    right: 50%;\r\n    margin-right: -464px;\r\n    border-radius: 4px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17772,6 +17772,8 @@ function app(){
     txtar.setAttribute('rows','14');
     document.body.appendChild(txtar);
     document.body.appendChild((0,_keyboard__WEBPACK_IMPORTED_MODULE_1__.Keyboard)());
+    // txtar.focus();
+    txtar.disabled = 'true';
 }
 
 /***/ }),
@@ -17804,7 +17806,8 @@ keyboardvalues.forEach((item) => {
 
 let isPressed = {
   'ctrl': false,
-  'caps': false
+  'caps': false,
+  'shift': false
 }
 function Keyboard() {
   // console.log('Digit5'.substring(0,5))
@@ -17821,8 +17824,8 @@ function Keyboard() {
       document.querySelector('#' + event.code).classList.add('keyboard__key--active')
       document.querySelector('#' + event.code).click()
     }
-    // let text = document.body.children[0].innerHTML;
-    // document.body.children[0].innerHTML = document.body.children[0].innerHTML + event.key;
+    // let text = textar.innerHTML;
+    // textar.innerHTML = textar.innerHTML + event.key;
 
 
 
@@ -17833,11 +17836,11 @@ function Keyboard() {
   document.addEventListener('keyup', function (event) {
 
     if (codes.includes(event.code)) {
-      console.log(document.querySelector('#' + event.code))
+      // console.log(document.querySelector('#' + event.code))
       document.querySelector('#' + event.code).classList.remove('keyboard__key--active')
     }
-    // let text = document.body.children[0].innerHTML;
-    // document.body.children[0].innerHTML = document.body.children[0].innerHTML + event.key;
+    // let text = textar.innerHTML;
+    // textar.innerHTML = textar.innerHTML + event.key;
 
 
 
@@ -17854,6 +17857,9 @@ function Keyboard() {
   const br = document.createElement('br');
   en_keys.forEach((name) => {
     if (keys.includes(name)) {
+      const textar = document.body.children[0];
+      // // const arrows = document.createElement('i');
+      // arrows.classList.add('')
       const ind = keys.indexOf(name);
       let key = document.createElement('button');
       key.classList.add('keyboard__key');
@@ -17863,12 +17869,19 @@ function Keyboard() {
       if (name == 'Backspace') {
         key.classList.add('k4');
         key.addEventListener('click', function () {
-          let text = document.body.children[0].innerHTML;
-          document.body.children[0].innerHTML = text.substring(0, text.length - 1);
+          let text = textar.innerHTML;
+          textar.innerHTML = text.substring(0, text.length - 1);
         });
       }
       else if (name == 'Tab') {
         key.classList.add('k2');
+        key.addEventListener('click', function () {
+          textar.innerHTML = textar.innerHTML + '    ';
+        });
+        
+        key.addEventListener('mousedown', function (e) {
+          return false
+        });
       }
       else if (name == 'Delete') {
         console.log()
@@ -17876,22 +17889,37 @@ function Keyboard() {
       }
       else if (name == 'CapsLock') {
         key.classList.add('k4', 'caps');
-        key.addEventListener('click',(e)=> handleCaps(e));
+        key.addEventListener('click', (e) => handleCaps(e));
       }
       else if (name == 'Enter') {
         key.classList.add('k3');
+        key.addEventListener('click', function () {
+          textar.innerHTML = textar.innerHTML + '\n';
+        });
       }
       else if (name == 'Shift ') {
         key.classList.add('k4');
+        key.addEventListener('mousedown', function (e) {
+          console.log('trig')
+          handleshift(e);
+        });
+        key.addEventListener('mouseup', function (e) {
+          handleshift(e);
+        });
+        key.addEventListener('click', function (e) {
+          console.log('trig')
+          handleshift(e);
+        });
       }
       else if (name == 'Shift') {
         key.classList.add('k3');
       }
       else if (name == 'up') {
         key.classList.add('k1');
-      }
-      else if (name == 'right') {
-        key.classList.add('k1');
+        key.innerHTML = '&#8593'
+        key.addEventListener('click', function () {
+          textar.innerHTML = textar.innerHTML + ' ' + key.innerHTML + ' ';
+        });
       }
       else if (name == 'ctrl ') {
         key.classList.add('k1');
@@ -17904,18 +17932,33 @@ function Keyboard() {
       }
       else if (name == 'Space') {
         key.classList.add('k5');
+        key.addEventListener('click', function () {
+          textar.innerHTML = textar.innerHTML + ' ';
+        });
       }
       else if (name == 'Alt') {
         key.classList.add('k1');
       }
       else if (name == 'left') {
         key.classList.add('k1');
+        key.innerHTML = '&#8592'
+        key.addEventListener('click', function () {
+          textar.innerHTML = textar.innerHTML + ' ' + key.innerHTML + ' ';
+        });
       }
       else if (name == 'down') {
         key.classList.add('k1');
+        key.innerHTML = '&#8595'
+        key.addEventListener('click', function () {
+          textar.innerHTML = textar.innerHTML + ' ' + key.innerHTML + ' ';
+        });
       }
       else if (name == 'right') {
         key.classList.add('k1');
+        key.innerHTML = '&#8594'
+        key.addEventListener('click', function () {
+          textar.innerHTML = textar.innerHTML + ' ' + key.innerHTML + ' ';
+        });
       }
       else if (name == 'ctrl') {
         key.classList.add('k1');
@@ -17923,33 +17966,90 @@ function Keyboard() {
       else {
         key.classList.add('k1');
         key.addEventListener('click', function () {
-          document.body.children[0].innerHTML = document.body.children[0].innerHTML + key.innerHTML;
+          textar.innerHTML = textar.innerHTML + key.innerHTML;
         });
+        //Add Mouse events------------------------------------------------------------
+        // key.addEventListener('mousedown', function () {
+        //   key.click()
+        //   console.log('triggers');
+        //   setTimeout(function () { startInterval(key); }, 1000);
+        // });
+        // key.addEventListener('touchstart', function () {
+        //   console.log('triggers')
+        //   interval = setInterval(key.click(), time)
+        // });
+        // key.addEventListener('touchend', function () {
+        //   // console.log('triggers')
+        //   clearInterval(interval)
+        // });
+        //-----------------------------------------------------------------------------
       }
       main.appendChild(key);
     }
   })
+  function handleshift(e) {
+    e.target.addEventListener('mouseup', function (e) {
+      handleshift(e);
+    });
+    e.preventDefault();
+    isPressed.shift = !isPressed.shift;
+    console.log(isPressed.shift)
+    if (isPressed.shift) {
+      [...main.children].forEach((key) => {
+        if (key.innerHTML.length === 1) {
+          key.innerHTML = key.innerHTML.toUpperCase()
+        }
+      })
+    } else {
+      [...main.children].forEach((key) => {
+        if (key.innerHTML.length === 1) {
+          key.innerHTML = key.innerHTML.toLowerCase()
+        }
+      })
+    }
+    // e.target.addEventListener('mouseup', function (e) {
+    //   handleshift(e);
+    // });
+  }
 
   function handleCaps(e) {
     e.preventDefault();
     isPressed.caps = !isPressed.caps;
-    console.log(isPressed.caps)
+    // console.log(isPressed.caps)
     if (isPressed.caps) {
       document.querySelector('#CapsLock').classList.add('caps--active');
-      [...main.children].forEach((key)=>{
-        if(key.innerHTML.length===1){
-          key.innerHTML=key.innerHTML.toUpperCase()
+      [...main.children].forEach((key) => {
+        if (key.innerHTML.length === 1) {
+          key.innerHTML = key.innerHTML.toUpperCase()
         }
       })
-    }else{
+    } else {
       document.querySelector('#CapsLock').classList.remove('caps--active');
-      [...main.children].forEach((key)=>{
-        if(key.innerHTML.length===1){
-          key.innerHTML=key.innerHTML.toLowerCase()
+      [...main.children].forEach((key) => {
+        if (key.innerHTML.length === 1) {
+          key.innerHTML = key.innerHTML.toLowerCase()
         }
       })
     }
   }
+
+  //Setting interval------------------------------------------------------------------
+  // function addtext(txt) {
+  //   textar.innerHTML = textar.innerHTML + txt;
+  // }
+  // let interval = 0;
+  // console.log(interval)
+  // function startInterval(key) {
+  //   interval = setInterval(() => { key.click() }, 100);
+  //   key.addEventListener('mouseup', function () {
+  //     // console.log('triggers')
+  //     // setTimeout(function() { stopInterval(); }, 800);
+
+  //     clearInterval(interval);
+  //   });
+  // }
+  //------------------------------------------------------------------------------------
+
 
   //   let keys = Object.keys(keyboardvalues)
   //   let key = document.createElement('button');
