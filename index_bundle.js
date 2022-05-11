@@ -17797,6 +17797,10 @@ __webpack_require__.r(__webpack_exports__);
 const keys = [];
 const codes = [];
 const keyboardvalues = __webpack_require__(/*! ./keyboardvalues.json */ "./src/components/keyboardvalues.json");
+const russkeys = __webpack_require__(/*! ./keyboardvalues_russ.json */ "./src/components/keyboardvalues_russ.json")
+const shiftkeys=__webpack_require__(/*! ./shiftkeys.json */ "./src/components/shiftkeys.json");
+const toshift = Object.keys(shiftkeys);
+// console.log(toshift);
 keyboardvalues.forEach((item) => {
   keys.push(item['key'])
   codes.push(item['code'])
@@ -17815,23 +17819,20 @@ function Keyboard() {
     'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del',
     'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter',
     'Shift ', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '\/', 'up', 'Shift',
-    'ctrl ', 'Meta', 'Alt ', 'Space', 'Alt', 'left', 'down', 'right', 'ctrl'];
-
+    'ctrl ', 'Win', 'Alt ', 'Space', 'Alt', 'left', 'down', 'right', 'ctrl'];
   document.addEventListener('keydown', function (event) {
 
     if (codes.includes(event.code)) {
-      // console.log(event.code)
-      document.querySelector('#' + event.code).classList.add('keyboard__key--active')
-      document.querySelector('#' + event.code).click()
+      const elem = document.querySelector('#' + event.code);
+      elem.classList.add('keyboard__key--active')
+      elem.click()
     }
-    // let text = textar.innerHTML;
-    // textar.innerHTML = textar.innerHTML + event.key;
-
-
 
     if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
       alert('Undo!')
     }
+
+    return false;
   });
   document.addEventListener('keyup', function (event) {
 
@@ -17847,6 +17848,7 @@ function Keyboard() {
     if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
       alert('Undo!')
     }
+    return false;
   });
 
   // My part of code
@@ -17900,7 +17902,6 @@ function Keyboard() {
       else if (name == 'Shift ') {
         key.classList.add('k4');
         key.addEventListener('mousedown', function (e) {
-          console.log('trig')
           handleshift(e);
         });
         key.addEventListener('mouseup', function (e) {
@@ -17913,6 +17914,16 @@ function Keyboard() {
       }
       else if (name == 'Shift') {
         key.classList.add('k3');
+        key.addEventListener('mousedown', function (e) {
+          handleshift(e);
+        });
+        key.addEventListener('mouseup', function (e) {
+          handleshift(e);
+        });
+        key.addEventListener('click', function (e) {
+          console.log('trig')
+          handleshift(e);
+        });
       }
       else if (name == 'up') {
         key.classList.add('k1');
@@ -17963,6 +17974,9 @@ function Keyboard() {
       else if (name == 'ctrl') {
         key.classList.add('k1');
       }
+      else if (name == 'Win') {
+        key.classList.add('k1');
+      }
       else {
         key.classList.add('k1');
         key.addEventListener('click', function () {
@@ -17988,25 +18002,35 @@ function Keyboard() {
     }
   })
   function handleshift(e) {
-    e.target.addEventListener('mouseup', function (e) {
-      handleshift(e);
-    });
+    // e.target.addEventListener('mouseup', function (e) {
+    //   handleshift(e);
+    // });
     e.preventDefault();
     isPressed.shift = !isPressed.shift;
-    console.log(isPressed.shift)
+
     if (isPressed.shift) {
       [...main.children].forEach((key) => {
-        if (key.innerHTML.length === 1) {
+        console.log(key.innerHTML)
+        if(toshift.includes(key.innerHTML)){
+          key.innerHTML = shiftkeys[key.innerHTML];
+        }
+        else if (key.innerHTML.length === 1) {
           key.innerHTML = key.innerHTML.toUpperCase()
         }
       })
     } else {
       [...main.children].forEach((key) => {
+        if(toshift.includes(key.innerHTML)){
+          key.innerHTML = shiftkeys[key.innerHTML];
+        }
         if (key.innerHTML.length === 1) {
           key.innerHTML = key.innerHTML.toLowerCase()
         }
       })
     }
+    // function shiftClick(){
+
+    // }
     // e.target.addEventListener('mouseup', function (e) {
     //   handleshift(e);
     // });
@@ -18072,7 +18096,29 @@ function Keyboard() {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('[{"key":"Backspace","code":"Backspace"},{"key":"Tab","code":"Tab"},{"key":"Enter","code":"Enter"},{"key":"Shift ","code":"ShiftLeft"},{"key":"Shift","code":"ShiftRight"},{"key":"ctrl ","code":"ControlLeft"},{"key":"ctrl","code":"ControlRight"},{"key":"Alt ","code":"AltLeft"},{"key":"Alt","code":"AltRight"},{"key":"Pause","code":"Pause"},{"key":"CapsLock","code":"CapsLock"},{"key":"Escape","code":"Escape"},{"key":"Space","code":"Space"},{"key":"PageUp","code":"PageUp"},{"key":"PageDown","code":"PageDown"},{"key":"End","code":"End"},{"key":"Home","code":"Home"},{"key":"left","code":"ArrowLeft"},{"key":"up","code":"ArrowUp"},{"key":"right","code":"ArrowRight"},{"key":"down","code":"ArrowDown"},{"key":"Del","code":"Delete"},{"key":"0","code":"Digit0"},{"key":"1","code":"Digit1"},{"key":"2","code":"Digit2"},{"key":"3","code":"Digit3"},{"key":"4","code":"Digit4"},{"key":"5","code":"Digit5"},{"key":"6","code":"Digit6"},{"key":"7","code":"Digit7"},{"key":"8","code":"Digit8"},{"key":"9","code":"Digit9"},{"key":"a","code":"KeyA"},{"key":"b","code":"KeyB"},{"key":"c","code":"KeyC"},{"key":"d","code":"KeyD"},{"key":"e","code":"KeyE"},{"key":"f","code":"KeyF"},{"key":"g","code":"KeyG"},{"key":"h","code":"KeyH"},{"key":"i","code":"KeyI"},{"key":"j","code":"KeyJ"},{"key":"k","code":"KeyK"},{"key":"l","code":"KeyL"},{"key":"m","code":"KeyM"},{"key":"n","code":"KeyN"},{"key":"o","code":"KeyO"},{"key":"p","code":"KeyP"},{"key":"q","code":"KeyQ"},{"key":"r","code":"KeyR"},{"key":"s","code":"KeyS"},{"key":"t","code":"KeyT"},{"key":"u","code":"KeyU"},{"key":"v","code":"KeyV"},{"key":"w","code":"KeyW"},{"key":"x","code":"KeyX"},{"key":"y","code":"KeyY"},{"key":"z","code":"KeyZ"},{"key":"Meta","code":"MetaLeft"},{"key":";","code":"Semicolon"},{"key":"=","code":"Equal"},{"key":",","code":"Comma"},{"key":"-","code":"Minus"},{"key":".","code":"Period"},{"key":"/","code":"Slash"},{"key":"`","code":"Backquote"},{"key":"[","code":"BracketLeft"},{"key":"\\\\","code":"Backslash"},{"key":"]","code":"BracketRight"},{"key":"\'","code":"Quote"}]');
+module.exports = JSON.parse('[{"key":"Backspace","code":"Backspace"},{"key":"Tab","code":"Tab"},{"key":"Enter","code":"Enter"},{"key":"Shift ","code":"ShiftLeft"},{"key":"Shift","code":"ShiftRight"},{"key":"ctrl ","code":"ControlLeft"},{"key":"ctrl","code":"ControlRight"},{"key":"Alt ","code":"AltLeft"},{"key":"Alt","code":"AltRight"},{"key":"Pause","code":"Pause"},{"key":"CapsLock","code":"CapsLock"},{"key":"Escape","code":"Escape"},{"key":"Space","code":"Space"},{"key":"PageUp","code":"PageUp"},{"key":"PageDown","code":"PageDown"},{"key":"End","code":"End"},{"key":"Home","code":"Home"},{"key":"left","code":"ArrowLeft"},{"key":"up","code":"ArrowUp"},{"key":"right","code":"ArrowRight"},{"key":"down","code":"ArrowDown"},{"key":"Del","code":"Delete"},{"key":"0","code":"Digit0"},{"key":"1","code":"Digit1"},{"key":"2","code":"Digit2"},{"key":"3","code":"Digit3"},{"key":"4","code":"Digit4"},{"key":"5","code":"Digit5"},{"key":"6","code":"Digit6"},{"key":"7","code":"Digit7"},{"key":"8","code":"Digit8"},{"key":"9","code":"Digit9"},{"key":"a","code":"KeyA"},{"key":"b","code":"KeyB"},{"key":"c","code":"KeyC"},{"key":"d","code":"KeyD"},{"key":"e","code":"KeyE"},{"key":"f","code":"KeyF"},{"key":"g","code":"KeyG"},{"key":"h","code":"KeyH"},{"key":"i","code":"KeyI"},{"key":"j","code":"KeyJ"},{"key":"k","code":"KeyK"},{"key":"l","code":"KeyL"},{"key":"m","code":"KeyM"},{"key":"n","code":"KeyN"},{"key":"o","code":"KeyO"},{"key":"p","code":"KeyP"},{"key":"q","code":"KeyQ"},{"key":"r","code":"KeyR"},{"key":"s","code":"KeyS"},{"key":"t","code":"KeyT"},{"key":"u","code":"KeyU"},{"key":"v","code":"KeyV"},{"key":"w","code":"KeyW"},{"key":"x","code":"KeyX"},{"key":"y","code":"KeyY"},{"key":"z","code":"KeyZ"},{"key":"Win","code":"MetaLeft"},{"key":";","code":"Semicolon"},{"key":"=","code":"Equal"},{"key":",","code":"Comma"},{"key":"-","code":"Minus"},{"key":".","code":"Period"},{"key":"/","code":"Slash"},{"key":"`","code":"Backquote"},{"key":"[","code":"BracketLeft"},{"key":"\\\\","code":"Backslash"},{"key":"]","code":"BracketRight"},{"key":"\'","code":"Quote"}]');
+
+/***/ }),
+
+/***/ "./src/components/keyboardvalues_russ.json":
+/*!*************************************************!*\
+  !*** ./src/components/keyboardvalues_russ.json ***!
+  \*************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('[{"key":"Backspace","code":"Backspace"},{"key":"Tab","code":"Tab"},{"key":"Enter","code":"Enter"},{"key":"Shift ","code":"ShiftLeft"},{"key":"Shift","code":"ShiftRight"},{"key":"ctrl ","code":"ControlLeft"},{"key":"ctrl","code":"ControlRight"},{"key":"Alt ","code":"AltLeft"},{"key":"Alt","code":"AltRight"},{"key":"Pause","code":"Pause"},{"key":"CapsLock","code":"CapsLock"},{"key":"Escape","code":"Escape"},{"key":"Space","code":"Space"},{"key":"PageUp","code":"PageUp"},{"key":"PageDown","code":"PageDown"},{"key":"End","code":"End"},{"key":"Home","code":"Home"},{"key":"left","code":"ArrowLeft"},{"key":"up","code":"ArrowUp"},{"key":"right","code":"ArrowRight"},{"key":"down","code":"ArrowDown"},{"key":"Del","code":"Delete"},{"key":"0","code":"Digit0"},{"key":"1","code":"Digit1"},{"key":"2","code":"Digit2"},{"key":"3","code":"Digit3"},{"key":"4","code":"Digit4"},{"key":"5","code":"Digit5"},{"key":"6","code":"Digit6"},{"key":"7","code":"Digit7"},{"key":"8","code":"Digit8"},{"key":"9","code":"Digit9"},{"key":"ф","code":"KeyA"},{"key":"и","code":"KeyB"},{"key":"с","code":"KeyC"},{"key":"в","code":"KeyD"},{"key":"у","code":"KeyE"},{"key":"а","code":"KeyF"},{"key":"п","code":"KeyG"},{"key":"р","code":"KeyH"},{"key":"ш","code":"KeyI"},{"key":"о","code":"KeyJ"},{"key":"л","code":"KeyK"},{"key":"д","code":"KeyL"},{"key":"ь","code":"KeyM"},{"key":"т","code":"KeyN"},{"key":"щ","code":"KeyO"},{"key":"з","code":"KeyP"},{"key":"й","code":"KeyQ"},{"key":"к","code":"KeyR"},{"key":"ы","code":"KeyS"},{"key":"е","code":"KeyT"},{"key":"г","code":"KeyU"},{"key":"м","code":"KeyV"},{"key":"ц","code":"KeyW"},{"key":"ч","code":"KeyX"},{"key":"н","code":"KeyY"},{"key":"я","code":"KeyZ"},{"key":"Win","code":"MetaLeft"},{"key":";","code":"Semicolon"},{"key":"=","code":"Equal"},{"key":",","code":"Comma"},{"key":"-","code":"Minus"},{"key":".","code":"Period"},{"key":"/","code":"Slash"},{"key":"`","code":"Backquote"},{"key":"[","code":"BracketLeft"},{"key":"\\\\","code":"Backslash"},{"key":"]","code":"BracketRight"},{"key":"\'","code":"Quote"}]');
+
+/***/ }),
+
+/***/ "./src/components/shiftkeys.json":
+/*!***************************************!*\
+  !*** ./src/components/shiftkeys.json ***!
+  \***************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"0":")","1":"!","2":"@","3":"#","4":"$","5":"%","6":"^","7":"&amp;","8":"*","9":"(","`":"~","-":"_","=":"+","[":"{","]":"}","\\\\":"|",";":":","\'":"\\"",",":"<",".":">","/":"?","~":"`","!":1,"@":2,"#":3,"$":4,"%":5,"^":6,"&amp;":7,"*":8,"(":9,")":0,"_":"-","+":"=","{":"[","}":"]","|":"\\\\",":":";","\\"":"\'","&lt;":",","&gt;":".","?":"/"}');
 
 /***/ })
 
