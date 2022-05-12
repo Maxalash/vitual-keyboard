@@ -17767,6 +17767,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function app(){
+    const head = document.createElement('h6');
+
+    head.innerhtml='Sorry dear colleague, I forgot to submit My pull request instead of deploy url (It will be fair even if score will be lower) '
+
+    const span = document.createElement('a');
+    span.innerHTML='Sorry dear colleague, I forgot to submit My pull request instead of deploy url (It will be fair even if score will be lower). Click here to get to pull request';
+    span.setAttribute('href', 'https://github.com/Maxalash/vitual-keyboard/pull/1')
+
+    head.append(span)
+    document.body.appendChild(head)
+
     // global.console.log('Helo my');
     const txtar = document.createElement('textarea');
     txtar.setAttribute('rows','14');
@@ -17867,7 +17878,8 @@ function Keyboard() {
   const br = document.createElement('br');
   en_keys.forEach((name) => {
     if (keys.includes(name)) {
-      const textar = document.body.children[0];
+      const textar = document.body.getElementsByTagName('textarea')[0];
+      // console.log(document.body.getElementsByTagName('textarea'))
       // // const arrows = document.createElement('i');
       // arrows.classList.add('')
       const ind = keys.indexOf(name);
@@ -18023,7 +18035,7 @@ function Keyboard() {
 
     if (isPressed.shift) {
       [...main.children].forEach((key) => {
-        console.log(key.innerHTML)
+        // console.log(key.innerHTML)
         if(toshift.includes(key.innerHTML)){
           key.innerHTML = shkeys[key.innerHTML];
         }
