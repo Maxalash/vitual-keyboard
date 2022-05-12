@@ -17797,9 +17797,12 @@ __webpack_require__.r(__webpack_exports__);
 const keys = [];
 const codes = [];
 const keyboardvalues = __webpack_require__(/*! ./keyboardvalues.json */ "./src/components/keyboardvalues.json");
-const russkeys = __webpack_require__(/*! ./keyboardvalues_russ.json */ "./src/components/keyboardvalues_russ.json")
+const russkeys = __webpack_require__(/*! ./keyboardvalues_russ.json */ "./src/components/keyboardvalues_russ.json");
+const enkeys = __webpack_require__(/*! ./keyboardvalues_en.json */ "./src/components/keyboardvalues_en.json");
 const shiftkeys=__webpack_require__(/*! ./shiftkeys.json */ "./src/components/shiftkeys.json");
-const toshift = Object.keys(shiftkeys);
+const russhiftkeys=__webpack_require__(/*! ./shiftkeys_rus.json */ "./src/components/shiftkeys_rus.json");
+const toshiften = Object.keys(shiftkeys);
+const toshiftrus = Object.keys(russhiftkeys);
 // console.log(toshift);
 keyboardvalues.forEach((item) => {
   keys.push(item['key'])
@@ -17811,7 +17814,8 @@ keyboardvalues.forEach((item) => {
 let isPressed = {
   'ctrl': false,
   'caps': false,
-  'shift': false
+  'shift': false,
+  'lang':false
 }
 function Keyboard() {
   // console.log('Digit5'.substring(0,5))
@@ -17828,10 +17832,15 @@ function Keyboard() {
       elem.click()
     }
 
-    if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
-      alert('Undo!')
+    
+    if (event.ctrlKey) {
+      isPressed.ctrl = true;
+      console.log(isPressed.ctrl)
     }
-
+    if(event.altKey & isPressed.ctrl){
+      console.log(isPressed.ctrl)
+      toggleLan(event)
+    }
     return false;
   });
   document.addEventListener('keyup', function (event) {
@@ -17842,12 +17851,11 @@ function Keyboard() {
     }
     // let text = textar.innerHTML;
     // textar.innerHTML = textar.innerHTML + event.key;
-
-
-
-    if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
-      alert('Undo!')
+    if (event.ctrlKey) {
+      isPressed.ctrl = false;
     }
+
+
     return false;
   });
 
@@ -18002,9 +18010,14 @@ function Keyboard() {
     }
   })
   function handleshift(e) {
-    // e.target.addEventListener('mouseup', function (e) {
-    //   handleshift(e);
-    // });
+    let shkeys = null;
+    let toshift = null;
+    if(isPressed.lang){
+      shkeys=russhiftkeys; 
+      toshift=toshiftrus}
+    else {
+      shkeys=shiftkeys; 
+      toshift=toshiften}
     e.preventDefault();
     isPressed.shift = !isPressed.shift;
 
@@ -18012,7 +18025,7 @@ function Keyboard() {
       [...main.children].forEach((key) => {
         console.log(key.innerHTML)
         if(toshift.includes(key.innerHTML)){
-          key.innerHTML = shiftkeys[key.innerHTML];
+          key.innerHTML = shkeys[key.innerHTML];
         }
         else if (key.innerHTML.length === 1) {
           key.innerHTML = key.innerHTML.toUpperCase()
@@ -18021,7 +18034,7 @@ function Keyboard() {
     } else {
       [...main.children].forEach((key) => {
         if(toshift.includes(key.innerHTML)){
-          key.innerHTML = shiftkeys[key.innerHTML];
+          key.innerHTML = shkeys[key.innerHTML];
         }
         if (key.innerHTML.length === 1) {
           key.innerHTML = key.innerHTML.toLowerCase()
@@ -18052,6 +18065,25 @@ function Keyboard() {
       [...main.children].forEach((key) => {
         if (key.innerHTML.length === 1) {
           key.innerHTML = key.innerHTML.toLowerCase()
+        }
+      })
+    }
+  }
+
+  function toggleLan(e){
+    e.preventDefault()
+    isPressed.lang = !isPressed.lang;
+    console.log(isPressed.lang)
+    if(isPressed.lang){
+      [...main.children].forEach((key)=>{
+        if(Object.keys(russkeys).includes(key.id)){
+        key.innerHTML=russkeys[key.id];
+        }
+      })
+    }else{
+      [...main.children].forEach((key)=>{
+        if(Object.keys(enkeys).includes(key.id)){
+        key.innerHTML=enkeys[key.id];
         }
       })
     }
@@ -18100,6 +18132,17 @@ module.exports = JSON.parse('[{"key":"Backspace","code":"Backspace"},{"key":"Tab
 
 /***/ }),
 
+/***/ "./src/components/keyboardvalues_en.json":
+/*!***********************************************!*\
+  !*** ./src/components/keyboardvalues_en.json ***!
+  \***********************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"Backquote":"`","KeyA":"a","KeyB":"b","KeyC":"c","KeyD":"d","KeyE":"e","KeyF":"f","KeyG":"g","KeyH":"h","KeyI":"i","KeyJ":"j","KeyK":"k","KeyL":"l","KeyM":"m","KeyN":"n","KeyO":"o","KeyP":"p","KeyQ":"q","KeyR":"r","KeyS":"s","KeyT":"t","KeyU":"u","KeyV":"v","KeyW":"w","KeyX":"x","KeyY":"y","KeyZ":"z","Semicolon":";","Comma":",","Period":".","BracketLeft":"[","BracketRight":"]","Quote":"\'","Slash":"/"}');
+
+/***/ }),
+
 /***/ "./src/components/keyboardvalues_russ.json":
 /*!*************************************************!*\
   !*** ./src/components/keyboardvalues_russ.json ***!
@@ -18107,7 +18150,7 @@ module.exports = JSON.parse('[{"key":"Backspace","code":"Backspace"},{"key":"Tab
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('[{"key":"Backspace","code":"Backspace"},{"key":"Tab","code":"Tab"},{"key":"Enter","code":"Enter"},{"key":"Shift ","code":"ShiftLeft"},{"key":"Shift","code":"ShiftRight"},{"key":"ctrl ","code":"ControlLeft"},{"key":"ctrl","code":"ControlRight"},{"key":"Alt ","code":"AltLeft"},{"key":"Alt","code":"AltRight"},{"key":"Pause","code":"Pause"},{"key":"CapsLock","code":"CapsLock"},{"key":"Escape","code":"Escape"},{"key":"Space","code":"Space"},{"key":"PageUp","code":"PageUp"},{"key":"PageDown","code":"PageDown"},{"key":"End","code":"End"},{"key":"Home","code":"Home"},{"key":"left","code":"ArrowLeft"},{"key":"up","code":"ArrowUp"},{"key":"right","code":"ArrowRight"},{"key":"down","code":"ArrowDown"},{"key":"Del","code":"Delete"},{"key":"0","code":"Digit0"},{"key":"1","code":"Digit1"},{"key":"2","code":"Digit2"},{"key":"3","code":"Digit3"},{"key":"4","code":"Digit4"},{"key":"5","code":"Digit5"},{"key":"6","code":"Digit6"},{"key":"7","code":"Digit7"},{"key":"8","code":"Digit8"},{"key":"9","code":"Digit9"},{"key":"ф","code":"KeyA"},{"key":"и","code":"KeyB"},{"key":"с","code":"KeyC"},{"key":"в","code":"KeyD"},{"key":"у","code":"KeyE"},{"key":"а","code":"KeyF"},{"key":"п","code":"KeyG"},{"key":"р","code":"KeyH"},{"key":"ш","code":"KeyI"},{"key":"о","code":"KeyJ"},{"key":"л","code":"KeyK"},{"key":"д","code":"KeyL"},{"key":"ь","code":"KeyM"},{"key":"т","code":"KeyN"},{"key":"щ","code":"KeyO"},{"key":"з","code":"KeyP"},{"key":"й","code":"KeyQ"},{"key":"к","code":"KeyR"},{"key":"ы","code":"KeyS"},{"key":"е","code":"KeyT"},{"key":"г","code":"KeyU"},{"key":"м","code":"KeyV"},{"key":"ц","code":"KeyW"},{"key":"ч","code":"KeyX"},{"key":"н","code":"KeyY"},{"key":"я","code":"KeyZ"},{"key":"Win","code":"MetaLeft"},{"key":";","code":"Semicolon"},{"key":"=","code":"Equal"},{"key":",","code":"Comma"},{"key":"-","code":"Minus"},{"key":".","code":"Period"},{"key":"/","code":"Slash"},{"key":"`","code":"Backquote"},{"key":"[","code":"BracketLeft"},{"key":"\\\\","code":"Backslash"},{"key":"]","code":"BracketRight"},{"key":"\'","code":"Quote"}]');
+module.exports = JSON.parse('{"Backquote":"ё","KeyA":"ф","KeyB":"и","KeyC":"с","KeyD":"в","KeyE":"у","KeyF":"а","KeyG":"п","KeyH":"р","KeyI":"ш","KeyJ":"о","KeyK":"л","KeyL":"д","KeyM":"ь","KeyN":"т","KeyO":"щ","KeyP":"з","KeyQ":"й","KeyR":"к","KeyS":"ы","KeyT":"е","KeyU":"г","KeyV":"м","KeyW":"ц","KeyX":"ч","KeyY":"н","KeyZ":"я","Semicolon":"ж","Comma":"б","Period":"ю","BracketLeft":"х","BracketRight":"ъ","Quote":"э","Slash":"."}');
 
 /***/ }),
 
@@ -18119,6 +18162,17 @@ module.exports = JSON.parse('[{"key":"Backspace","code":"Backspace"},{"key":"Tab
 
 "use strict";
 module.exports = JSON.parse('{"0":")","1":"!","2":"@","3":"#","4":"$","5":"%","6":"^","7":"&amp;","8":"*","9":"(","`":"~","-":"_","=":"+","[":"{","]":"}","\\\\":"|",";":":","\'":"\\"",",":"<",".":">","/":"?","~":"`","!":1,"@":2,"#":3,"$":4,"%":5,"^":6,"&amp;":7,"*":8,"(":9,")":0,"_":"-","+":"=","{":"[","}":"]","|":"\\\\",":":";","\\"":"\'","&lt;":",","&gt;":".","?":"/"}');
+
+/***/ }),
+
+/***/ "./src/components/shiftkeys_rus.json":
+/*!*******************************************!*\
+  !*** ./src/components/shiftkeys_rus.json ***!
+  \*******************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"0":")","1":"!","2":"\\"","3":"№","4":";","5":"%","6":":","7":"?","8":"*","9":"(","-":"_","=":"+","\\\\":"/",".":",","!":1,"\\"":2,"№":3,";":4,"%":5,":":6,"?":7,"*":8,"(":9,")":0,"_":"-","+":"=","/":"\\\\",",":"."}');
 
 /***/ })
 
