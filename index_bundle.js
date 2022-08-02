@@ -17767,13 +17767,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function app(){
-    const head = document.createElement('h6');
-    head.innerhtml='Sorry dear colleague, I forgot to submit My pull request instead of deploy url (It will be fair even if score will be lower) '
-    const span = document.createElement('a');
-    span.innerHTML='Sorry dear colleague, I forgot to submit My pull request instead of deploy url (It will be fair even if score will be lower). Click here to get to pull request';
-    span.setAttribute('href', 'https://github.com/Maxalash/vitual-keyboard/pull/1')
-    head.append(span)
-    document.body.appendChild(head)
 const hint = document.createElement('h4');
 hint.innerHTML = 'переключение языка: ctrl + alt'
 
